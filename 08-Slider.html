@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 400px;
+            height: 250px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <button onclick="OncekiFotografiGetir()">Önceki</button>
+        <img src="images/1.jfif" id="slider">
+        <button onclick="SonrakiFotografiGetir()">Sonraki</button>
+    </div>
+
+    <script>
+        // ilgili fonk. yazarak slider olusturunuz.
+        var resimler = ["images/1.jfif", "images/2.jfif", "images/3.jfif", "images/4.jfif"];
+
+        var slider = document.getElementById("slider"); // img yakalandı.
+
+        var mevcutIndex = 0;
+
+        function SonrakiFotografiGetir() {
+            mevcutIndex++;
+
+            if (mevcutIndex >= resimler.length) {
+                mevcutIndex = 0;
+            }
+            slider.src = resimler[mevcutIndex];
+        }
+
+        function OncekiFotografiGetir() {
+            mevcutIndex--;
+            if (mevcutIndex < 0) {
+                mevcutIndex = resimler.length - 1; // İlk resime gelindiyse, son resime dön
+            }
+            slider.src = resimler[mevcutIndex]; // Yeni resim yükle
+        }
+
+    </script>
+
+</body>
+
+</html>
